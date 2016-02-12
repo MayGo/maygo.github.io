@@ -5,16 +5,13 @@
  */
 
 // jQuery to collapse the navbar on scroll
-function collapseNavbar() {
+$(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
     } else {
         $(".navbar-fixed-top").removeClass("top-nav-collapse");
     }
-}
-
-$(window).scroll(collapseNavbar);
-$(document).ready(collapseNavbar);
+});
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
@@ -29,18 +26,18 @@ $(function() {
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
-  if ($(this).attr('class') != 'dropdown-toggle active' && $(this).attr('class') != 'dropdown-toggle') {
     $('.navbar-toggle:visible').click();
-  }
 });
 
+// remove the focused state after click,
+// otherwise bootstrap will still highlight the link
+$("a").mouseup(function(){
+    $(this).blur();
+})
+
 // Google Maps Scripts
-var map = null;
 // When the window has finished loading create our google map below
 google.maps.event.addDomListener(window, 'load', init);
-google.maps.event.addDomListener(window, 'resize', function() {
-    map.setCenter(new google.maps.LatLng(40.6700, -73.9400));
-});
 
 function init() {
     // Basic options for a simple Google Map
@@ -174,7 +171,7 @@ function init() {
     var mapElement = document.getElementById('map');
 
     // Create the Google Map using out element and options defined above
-    map = new google.maps.Map(mapElement, mapOptions);
+    var map = new google.maps.Map(mapElement, mapOptions);
 
     // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
     var image = 'img/map-marker.png';
