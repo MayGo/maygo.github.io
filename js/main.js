@@ -56,6 +56,7 @@ function main() {
 
                 margin: 40,
                 loop: false,
+                lazyLoad:true,
                 autoWidth: true,
                 autoHeight: true,
                 items: 4

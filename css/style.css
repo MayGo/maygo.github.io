@@ -378,6 +378,7 @@ img.img-circle.team-img {
 #clients .item {
     width: 140px;
     height: 100px;
+    position: relative;
 }
 
 #clients .item img {
