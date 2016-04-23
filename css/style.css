@@ -672,3 +672,13 @@ nav#footer p {
     background: #2592FF;
     border-color: #2592FF;
     color: #ffffff;
+}
+
+.lang-selector {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+.lang-selector a{
+    color: #FFF
+}
